@@ -1,10 +1,10 @@
 
 
-export default function InputField({ title = "Unnamed" }) {
+export default function InputField({ title = "Unnamed", value, handleChange}) {
     return (
         <div>
             <label>{title}</label>
-            <input id={title}></input>
+            <input onChange={handleChange} value={value ?? ""} name={title}></input>
         </div>
     )
 }
