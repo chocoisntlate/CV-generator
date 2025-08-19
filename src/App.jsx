@@ -7,13 +7,23 @@ import GeneralSection from './components/GeneralSection'
 import EducationSection from './components/EducationSection'
 import ExperienceSection from './components/ExperienceSection'
 import Form from './components/Form'
+import Resume from './components/Resume'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [displayResume, setDisplayStatus] = useState(false)
+  const [resumeInputs, setResumeInputs] = useState([])
 
   return (
     <>
-      <Form></Form>
+      {!displayResume && 
+        <Form onSubmit={(inputs) => {
+          setResumeInputs(inputs)
+          setDisplayStatus(true)
+          console.log(inputs)
+          }}
+        />
+      }
+      {displayResume && <Resume inputs={resumeInputs}></Resume>}
     </>
   )
 }

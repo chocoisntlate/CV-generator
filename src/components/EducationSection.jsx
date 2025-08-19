@@ -1,4 +1,3 @@
-import InputField from "./InputField";
 import SchoolFields from "./SchoolFields";
 import { useState } from "react";
 
