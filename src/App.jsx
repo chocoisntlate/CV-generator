@@ -1,13 +1,9 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-import GeneralSection from './components/GeneralSection'
-import EducationSection from './components/EducationSection'
-import ExperienceSection from './components/ExperienceSection'
 import Form from './components/Form'
-import Resume from './components/Resume'
+import MyDocument from './components/Resume'
+import { PDFViewer } from '@react-pdf/renderer';
 
 function App() {
   const [displayResume, setDisplayStatus] = useState(false)
@@ -23,7 +19,11 @@ function App() {
           }}
         />
       }
-      {displayResume && <Resume inputs={resumeInputs}></Resume>}
+      {displayResume &&
+        <PDFViewer id="pdfviewer">
+          <MyDocument inputs={resumeInputs}></MyDocument>
+        </PDFViewer>
+      }
     </>
   )
 }

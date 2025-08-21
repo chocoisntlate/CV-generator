@@ -2,6 +2,7 @@ import { useState } from "react";
 import EducationSection from "./EducationSection";
 import ExperienceSection from "./ExperienceSection";
 import GeneralSection from "./GeneralSection";
+import styles from "../styles/form.module.css"
 
 export default function Form({onSubmit}) {
     const [generalInputs, setGeneralInputs] = useState({})
@@ -67,7 +68,7 @@ export default function Form({onSubmit}) {
                 handleChange={handleExperienceChange}
                 inputs={experienceInputs}
             />
-            <button type="submit">Submit</button>
+            <button className={styles.button} type="submit">Submit</button>
         </form>
     )
 }
