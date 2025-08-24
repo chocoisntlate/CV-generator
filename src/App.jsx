@@ -5,6 +5,8 @@ import Form from './components/Form'
 import MyDocument from './components/Resume'
 import { PDFViewer } from '@react-pdf/renderer';
 import ButtonsBar from './components/ButtonsBar';
+import ReactPDF from '@react-pdf/renderer';
+
 
 function App() {
   const [displayResume, setDisplayStatus] = useState(false)
@@ -22,9 +24,11 @@ function App() {
       }
       {displayResume &&
       <div>
-        <ButtonsBar setDisplayStatus={setDisplayStatus}/>
+        <ButtonsBar setDisplayStatus={setDisplayStatus}>
+          <MyDocument inputs={resumeInputs} />
+        </ButtonsBar>
         <PDFViewer id="pdfviewer">
-          <MyDocument inputs={resumeInputs}></MyDocument>
+          <MyDocument inputs={resumeInputs} />
         </PDFViewer>
       </div>
       }

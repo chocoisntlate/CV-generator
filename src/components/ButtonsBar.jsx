@@ -1,8 +1,15 @@
-export default function ButtonsBar({setDisplayStatus}) {
+import { PDFDownloadLink } from "@react-pdf/renderer"
+
+export default function ButtonsBar({setDisplayStatus, children}) {
     return (
         <div>
             <button onClick={()=> {setDisplayStatus(false)}}>Edit</button>
-            <button>Download</button>
+            <PDFDownloadLink document={children} fileName="resume.pdf">
+                {({ loading }) =>
+                    loading ? null : <button>Download</button>
+                }
+
+            </PDFDownloadLink>
         </div>
     )
 }
