@@ -4,10 +4,11 @@ import ExperienceSection from "./ExperienceSection";
 import GeneralSection from "./GeneralSection";
 import styles from "../styles/form.module.css"
 
-export default function Form({onSubmit}) {
-    const [generalInputs, setGeneralInputs] = useState({})
-    const [educationInputs, setEducationInputs] = useState([["","","",""]])
-    const [experienceInputs, setExperienceInputs] = useState([["","","",""]])
+export default function Form({onSubmit, initialInputs}) {
+    const [generalInputs, setGeneralInputs] = useState(initialInputs[0])
+    const [educationInputs, setEducationInputs] = useState(initialInputs[1])
+    const [experienceInputs, setExperienceInputs] = useState(initialInputs[2])
+
 
     const handleChange = (e) => {
         const name = e.target.name

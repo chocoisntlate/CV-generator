@@ -5,7 +5,8 @@ import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 const styles = StyleSheet.create({
   page: {
     display: "flex",
-    padding: "20px"
+    padding: "20px",
+    fontSize: "16px"
   },
   section: {
     margin: 10,
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
   },
 
   fullname: {
-    fontSize: '25px',
+    fontSize: '20px',
     fontWeight: 'bold'
   },
 
@@ -38,7 +39,6 @@ const styles = StyleSheet.create({
 
 // Create Document Component
 const MyDocument = ({inputs}) => {
-    console.log(inputs);
     return (
     <Document>
         <Page size="A4" style={styles.page}>
