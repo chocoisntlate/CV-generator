@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-import Form from './components/Form'
+import {Form, FormHeader} from './components/Form'
 import MyDocument from './components/Resume'
 import { PDFViewer } from '@react-pdf/renderer';
 import ButtonsBar from './components/ButtonsBar';
@@ -14,6 +14,7 @@ function App() {
 
   return (
     <>
+      <FormHeader></FormHeader>
       {!displayResume && 
         <Form onSubmit={(inputs) => {
           setResumeInputs(inputs)

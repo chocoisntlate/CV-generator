@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function EducationSection({inputs, handleChange, addSchoolUpdate, removeSchoolUpdate}) {
 
-    const [schools, setSchools] = useState([{}])
+    const [schools, setSchools] = useState(inputs.map((_)=>{}))
 
 
     const addSchool = (e) => {
@@ -13,9 +13,11 @@ export default function EducationSection({inputs, handleChange, addSchoolUpdate,
     }
 
     const removeSchool = (e) => {
-        setSchools(schools.slice(0,-1))
-        removeSchoolUpdate()
         e.preventDefault()
+        if (!(schools.length === 1)) {
+            setSchools(schools.slice(0,-1))
+            removeSchoolUpdate()
+        }
     }
 
 
@@ -25,8 +27,11 @@ export default function EducationSection({inputs, handleChange, addSchoolUpdate,
             {schools.map((_, index) => {
                 return <SchoolFields inputs={inputs} handleChange={handleChange} index={index} key={index}></SchoolFields>
             })}
-            <button onClick={addSchool}>Add another school</button>
-            <button onClick={removeSchool}>Remove school</button>
+            <div className="form-buttons">
+                <button onClick={addSchool}>Add School</button>
+                <button onClick={removeSchool}>Remove School</button>
+
+            </div>
             
         </div>
     )

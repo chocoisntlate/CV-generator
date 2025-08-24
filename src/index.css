@@ -1,8 +1,16 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:Georgia, 'Times New Roman', Times, serif
 }
 
 body {
   display: flex;
   justify-content: center;
+}
+
+.label-input {
+  display: flex;
+  text-align: left;
+  padding: 2px;
+  flex-direction: column;
+  justify-content: space-between;
 }

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function ExperienceSection({inputs, handleChange, addExperienceUpdate, removeExperienceUpdate}) {
 
-    const [experiences, setExperiences] = useState([{}])
+    const [experiences, setExperiences] = useState(inputs.map((_)=>{}))
 
 
     const addExperience = (e) => {
@@ -13,9 +13,13 @@ export default function ExperienceSection({inputs, handleChange, addExperienceUp
     }
 
     const removeExperience = (e) => {
+        
         e.preventDefault()
-        removeExperienceUpdate()
-        setExperiences(experiences.slice(0,-1))
+        if (!(experiences.length === 1)) {
+
+            removeExperienceUpdate()
+            setExperiences(experiences.slice(0,-1))
+        }
     }
 
 
@@ -25,8 +29,10 @@ export default function ExperienceSection({inputs, handleChange, addExperienceUp
             {experiences.map((_, index) => {
                 return <ExperienceFields inputs={inputs} handleChange={handleChange} index={index} key={index}></ExperienceFields>
             })}
-            <button onClick={addExperience}>Add another Experience</button>
-            <button onClick={removeExperience}>Remove Experience</button>
+            <div className="form-buttons">
+                <button onClick={addExperience}>Add Experience</button>
+                <button onClick={removeExperience}>Remove Experience</button>
+            </div>
             
         </div>
     )
